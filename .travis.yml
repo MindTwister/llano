@@ -1,4 +1,4 @@
 language: go
 
 install:
-  - go get github.com/smartystreets/goconve
+  - go get github.com/smartystreets/goconvey
