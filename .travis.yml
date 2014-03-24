@@ -2,6 +2,7 @@ language: go
 
 install:
   - go get github.com/smartystreets/goconvey
+  - go get github.com/jacobsa/oglematchers
 
 go:
   - 1.2
