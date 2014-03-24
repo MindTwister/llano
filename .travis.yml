@@ -2,3 +2,7 @@ language: go
 
 install:
   - go get github.com/smartystreets/goconvey
+
+go:
+  - 1.2
+  - tip
