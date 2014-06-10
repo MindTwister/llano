@@ -6,6 +6,7 @@ package llano
 import (
 	"io"
 	"net/http"
+	"time"
 )
 
 /*
@@ -45,6 +46,13 @@ func Code500() http.HandlerFunc {
 }
 
 /*
+Holds the connection for indefinite time
+*/
+func Timeout(w http.ResponseWriter, r *http.Request) {
+	time.Sleep(24 * time.Hour)
+}
+
+/*
 Returns the request body with the original Content-Type forwarded
 */
 func Echo(w http.ResponseWriter, r *http.Request) {
@@ -62,5 +70,6 @@ func Standalone(address, default200 string) {
 	http.HandleFunc("/302", Code302("/200"))
 	http.HandleFunc("/500", Code500())
 	http.HandleFunc("/echo", Echo)
+	http.HandleFunc("/timeout", Timeout)
 	http.ListenAndServe(address, nil)
 }
